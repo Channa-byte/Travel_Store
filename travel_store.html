@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Trip Starts Here</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fef6f9, #f3f7fd);
+      color: #333;
+    }
+    header {
+      background-image: url('https://source.unsplash.com/1600x900/?travel,nature');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 3rem;
+    }
+    .cta-buttons {
+      position: relative;
+      z-index: 2;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .cta-buttons button {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 30px;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #333;
+      position: relative;
+    }
+    .cta-buttons button:hover::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+    }
+    .cta-buttons button:hover {
+      background-color: #e0f0ff;
+      color: #007bff;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #1a202c;
+      text-align: center;
+    }
+    .section-subtext {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .card {
+      flex: 1 1 calc(22% - 1.5rem);
+      background: linear-gradient(to top right, #ffffff, #f0f8ff);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      min-width: 200px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: #eaf6ff;
+      z-index: 10;
+    }
+    .card::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      color: #333;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: max-content;
+      max-width: 240px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+      white-space: normal;
+    }
+    .card:hover::after {
+      opacity: 1;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    .carousel-item {
+      min-width: 250px;
+      background-color: #fff9f2;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .quiz-section button {
+      display: block;
+      margin: 1rem auto 0;
+      background-color: #3182ce;
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+    }
+    .quiz-section button:hover {
+      background-color: #2c5282;
+    }
+    .quiz-section button:hover::after {
+      content: "Click to start quiz and get a personalized cart!";
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Your Trip Starts Here</h1>
+  <div class="cta-buttons">
+    <button title="Flight-ready kits and essentials for your airport adventure">✈️ Flying Soon?</button>
+    <button title="Smart travel companions that fit in your carry-on">🧳 Pack Light</button>
+    <button title="All the gear you need for your mountain or jungle trek">🏞️ Trek-Ready Kits</button>
+    <button title="Floaty dresses, flip-flops, and everything for coastal getaways">🏖️ Resort Mode On</button>
+  </div>
+</header>
+
+<section>
+  <h2 class="section-title">Where Are You Going?</h2>
+  <p class="section-subtext">Choose your destination to personalize your packing list.</p>
+  <div class="cta-buttons">
+    <button title="Trail-tested essentials for mountain adventures">Trek</button>
+    <button title="Sunscreen, swimsuits, and laid-back looks">Beach</button>
+    <button title="Functional fashion for city explorations">Urban</button>
+    <button title="Polished staples and work-friendly accessories">Work</button>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Shop by Mood</h2>
+  <p class="section-subtext">Travel looks that match your vibe.</p>
+  <div class="cta-buttons">
+    <button title="Neutrals, soft fabrics, relaxed silhouettes">✨ Easy-Chic</button>
+    <button title="Techwear, cargos, and adventure packs">🎒 Rugged Explorer</button>
+    <button title="Blazers, flats, and sleek backpacks">👔 Business Polished</button>
+    <button title="Kaftans, sunglasses, jute bags">🏖️ Boho Casual</button>
+  </div>
+</section>
+
+<section class="quiz-section">
+  <h2 class="section-title">💫 Pack By Personality</h2>
+  <p class="section-subtext">Take a quick 5-step quiz and we'll fill your cart with perfect picks!</p>
+  <button onclick="alert('Redirecting to Quiz...')">Take the Quiz</button>
+</section>
+
+<section>
+  <h2 class="section-title">Trending Now</h2>
+  <p class="section-subtext">This week's favorite finds among smart travelers.</p>
+  <div class="grid">
+    <div class="card" data-tooltip="Trackable bags with power banks">🧳 Smart Luggage</div>
+    <div class="card" data-tooltip="Breathable sets for max compression">🩱 Compression Wear</div>
+    <div class="card" data-tooltip="TSA-approved, leak-proof travel bottles">🧴 Refillable Travel Bottles</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Bundles & Budget Sets</h2>
+  <p class="section-subtext">High-value, low-effort travel bundles to save time and money.</p>
+  <div class="grid">
+    <div class="card" data-tooltip="Travel kits below ₹1,999">🎒 Budget Picks</div>
+    <div class="card" data-tooltip="Luxury duffels, eye masks, designer bags">💎 Luxury Edits</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">🎥 Real Trips. Real Bags.</h2>
+  <p class="section-subtext">Curated travel kits from real creators.</p>
+  <div class="carousel">
+    <div class="carousel-item">What's In My Bag – @AyeshaTravels</div>
+    <div class="carousel-item">3-Day Trip Kit – @RaviExplorer</div>
+    <div class="carousel-item">Amazon Travel Must-Haves – #TravelFit</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">⏳ Last-Minute? No Problem.</h2>
+  <p class="section-subtext">Quick-delivery items for surprise plans.</p>
+  <div class="grid">
+    <div class="card" data-tooltip="Mini refill kits (toothbrush, lotion, soap)">🧼 Toiletry Refill Kits</div>
+    <div class="card" data-tooltip="Duffels with Prime 1-day shipping">👜 Duffels Under ₹1999</div>
+    <div class="card" data-tooltip="Eye masks, pouch sets, slippers">😴 Sleep Comfort Kits</div>
+    <div class="card" data-tooltip="Delivered in 1 day or less">🚚 Prime Express Essentials</div>
+  </div>
+</section>
+
+</body>
+</html>
